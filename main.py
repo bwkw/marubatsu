@@ -46,7 +46,7 @@ for i in range(60000):
         cross(train_images[i])
 
 test_images = np.zeros((10000, 28, 28), dtype=np.float64)
-test_labels = np.array(10000, dtype=np.uint8)
+test_labels = np.zeros(10000, dtype=np.uint8)
 
 for i in range(10000):
     te_label = random.randint(0, 1)
