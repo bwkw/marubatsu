@@ -38,9 +38,9 @@ def cross(img):
     return img
 
 for i in range(60000):
-    label = random.randint(0, 1)
-    train_labels[i] = label
-    if label == 0:
+    tr_label = random.randint(0, 1)
+    train_labels[i] = tr_label
+    if tr_label == 0:
         circle(train_images[i])
     else:
         cross(train_images[i])
@@ -49,9 +49,9 @@ test_images = np.zeros((10000, 28, 28), dtype=np.float64)
 test_labels = np.array(10000, dtype=np.uint8)
 
 for i in range(10000):
-    label = random.randint(0, 1)
-    test_labels[i] = label
-    if label == 0:
+    te_label = random.randint(0, 1)
+    test_labels[i] = te_label
+    if te_label == 0:
         circle(test_images[i])
     else:
         cross(test_images[i])
