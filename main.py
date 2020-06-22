@@ -4,25 +4,6 @@ import random
 train_images = np.zeros((60000, 28, 28), dtype=np.float64)
 train_labels = np.zeros(60000, dtype=np.uint8)
 
-for i in range(60000):
-    label = random.randint(0, 1)
-    train_labels[i] = label
-    if label == 0:
-        circle(train_images[i])
-    else:
-        cross(train_images[i])
-
-test_images = np.zeros((10000, 28, 28), dtype=np.float64)
-test_labels = np.array(10000, dtype=np.uint8)
-
-for i in range(10000):
-    label = random.randint(0, 1)
-    test_labels[i] = label
-    if label == 0:
-        circle(test_images[i])
-    else:
-        cross(test_images[i])
-
 def circle(img):
     r = random.randint(5, 12)
     dx = random.randint(-2, 2)
@@ -50,9 +31,32 @@ def cross(img):
         y1 = y + i
         x2 = xx - i
         y2 = y + i
-        img[x1, y1] = 1
-        img[x2, y2] = 1
+        img[x1][y1] = 1
+        img[x2][y2] = 1
     return img
+
+for i in range(60000):
+    label = random.randint(0, 1)
+    train_labels[i] = label
+    if label == 0:
+        circle(train_images[i])
+    else:
+        cross(train_images[i])
+
+test_images = np.zeros((10000, 28, 28), dtype=np.float64)
+test_labels = np.array(10000, dtype=np.uint8)
+
+for i in range(10000):
+    label = random.randint(0, 1)
+    test_labels[i] = label
+    if label == 0:
+        circle(test_images[i])
+    else:
+        cross(test_images[i])
+
+
+
+
 
 
 np.save('train_images',train_images)
