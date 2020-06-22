@@ -31,8 +31,10 @@ def cross(img):
         y1 = y + i
         x2 = xx - i
         y2 = y + i
-        img[x1][y1] = 1
-        img[x2][y2] = 1
+        if (x1 < 28) and (y1 <28):
+            img[x1][y1] = 1
+        if (x2 < 28) and (y2 <28):
+            img[x2][y2] = 1
     return img
 
 for i in range(60000):
