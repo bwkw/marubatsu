@@ -32,7 +32,7 @@ def cross(img):
         x2 = xx - i
         y2 = y + i
         img[x1][y1] = 1
-        img[x][y2] = 1
+        img[x2][y2] = 1
     return img
 
 for i in range(60000):
